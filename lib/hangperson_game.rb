@@ -1,13 +1,4 @@
 class HangpersonGame
-
-  # add the necessary class methods, attributes, etc. here
-  # to make the tests in spec/hangperson_game_spec.rb pass.
-
-  # Get a word from remote "random word" service
-
-  # def initialize()
-  # end
-  
   attr_accessor :word, :guesses, :wrong_guesses
   
   def initialize(word)
@@ -32,16 +23,6 @@ class HangpersonGame
   end
   
   def check_win_or_lose
-    # if self.wrong_guesses.size < 7
-    #   if self.word_with_guesses.eql?(self.word)
-    #     :win
-    #   else
-    #     :play
-    #   end
-    # else
-    #   :lose
-    # end
-    
     return :lose unless self.wrong_guesses.size < 7
     self.wrong_guesses.size < 7 && self.word_with_guesses.eql?(self.word) ? :win : :play
   end
@@ -53,6 +34,7 @@ class HangpersonGame
     self.word.gsub(gmatch_rgx, '-')
   end
 
+  # Get a word from remote "random word" service
   def self.get_random_word
     require 'uri'
     require 'net/http'
