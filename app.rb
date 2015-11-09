@@ -79,6 +79,7 @@ class HangpersonApp < Sinatra::Base
   
   private
   def already_guessed?(letter)
+    letter.downcase!
     @game.guesses.include?(letter) || @game.wrong_guesses.include?(letter)
   end
   
