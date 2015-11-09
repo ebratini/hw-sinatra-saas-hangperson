@@ -38,7 +38,7 @@ class HangpersonApp < Sinatra::Base
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
-    letter = params[:guess].to_s.chr
+    letter = params[:guess].to_s.downcase.chr
     flash[:message] = 'You have already used that letter.' if already_guessed? letter
     
     begin
@@ -79,7 +79,6 @@ class HangpersonApp < Sinatra::Base
   
   private
   def already_guessed?(letter)
-    letter.downcase!
     @game.guesses.include?(letter) || @game.wrong_guesses.include?(letter)
   end
   

@@ -24,7 +24,7 @@ class HangpersonGame
   
   def check_win_or_lose
     return :lose unless self.wrong_guesses.size < 7
-    self.wrong_guesses.size < 7 && self.word_with_guesses.eql?(self.word) ? :win : :play
+    self.word_with_guesses.eql?(self.word) ? :win : :play
   end
   
   def word_with_guesses
