@@ -9,7 +9,7 @@ class HangpersonGame
   
   def guess(guess)
     letter = guess.to_s.downcase[0]
-    raise ArgumentError, 'guess cannot be either: empty, nonletter or nil.' unless letter =~ /[a-z]/i
+    raise ArgumentError, 'guess cannot be either: empty, non-letter or nil.' unless letter =~ /[a-z]/i
     
     # return false if already guessed
     return false if self.guesses.include?(letter) || self.wrong_guesses.include?(letter)
